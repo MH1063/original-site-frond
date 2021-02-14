@@ -21,7 +21,7 @@ new Vue({
       console.log(decodeURIComponent(value[1]));
       
       axios
-        .get(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/users/${value[1]}`)
+        .get(`https://nba-api24.herokuapp.com/users/${value[1]}`)
         .then(response => {
           this.user = response.data.user;
         })
@@ -31,7 +31,7 @@ new Vue({
         });
         
       axios
-        .get(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/users/${id}`)
+        .get(`https://nba-api24.herokuapp.com/users/${id}`)
         .then(response => {
           console.log(response);
           const arr = response.data.followings.map(function(user){
@@ -56,7 +56,7 @@ new Vue({
   methods: {
     follow: function(){
       axios
-        .post('https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/relationships/create', {
+        .post('https://nba-api24.herokuapp.com/relationships/create', {
           follow_id: this.user.id 
         })
         .then(function (response) {
@@ -71,7 +71,7 @@ new Vue({
     },
     unfollow: function(){
       axios
-        .delete('https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/relationships/destroy', {
+        .delete('https://nba-api24.herokuapp.com/relationships/destroy', {
           /*follow_id: this.user.id ここにteamページからアクセスしたuserの情報が乗るようにする。また、deleteの場合は、paramsを使った方法にしないと出来ないかもしれない。*/
           data: {follow_id: this.user.id}
         })

@@ -22,12 +22,6 @@ new Vue({
       Team_id: '',
       team_status: '',
       teamImage: [],
-      imageArena: '',
-      image1: '',
-      image2: '',
-      image3: '',
-      image4: '',
-      image5: '',
       mychat: false,
       errored: false
     };
@@ -43,23 +37,17 @@ new Vue({
       this.team_status = value[1];
       
       axios
-        .get(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/teams/${value[1]}`)
+        .get(`https://nba-api24.herokuapp.com/teams/${value[1]}`)
         .then(response => {
           console.log(response.data);
           this.team = response.data;
-          this.imageArena = response.data.arena_img.url;
-          this.image1 = response.data.player1_img.url;
-          this.image2 = response.data.player2_img.url;
-          this.image3 = response.data.player3_img.url;
-          this.image4 = response.data.player4_img.url;
-          this.image5 = response.data.player5_img.url;
         })
         .catch(error => {
           console.log(error);
           this.errored = true;
         });
       axios
-        .get(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/chats/index/${value[1]}`)
+        .get(`https://nba-api24.herokuapp.com/chats/index/${value[1]}`)
         .then(response => {
           console.log(response.data);
           this.chats = response.data.chats;
@@ -70,7 +58,7 @@ new Vue({
         });
         
       axios
-        .get(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/users/${id}`)
+        .get(`https://nba-api24.herokuapp.com/users/${id}`)
         .then(response => {
           console.log(response.data.user);
           this.user = response.data.user;
@@ -86,7 +74,7 @@ new Vue({
   methods: {
     getchats: function(){
       axios
-        .get(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/chats/index/${this.team_status}`)
+        .get(`https://nba-api24.herokuapp.com/chats/index/${this.team_status}`)
         .then(response => {
           this.chats = response.data.chats})
         .catch(error => {
@@ -95,7 +83,7 @@ new Vue({
     },
     chatcreate: function(){
       axios
-        .post('https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/chats/create', {
+        .post('https://nba-api24.herokuapp.com/chats/create', {
           content: this.Content,
           team_id: this.team.id /*ここにそれぞれのteam_idの値が入るようにする。*/
         })
@@ -112,7 +100,7 @@ new Vue({
     },
     chatdestroy: function(value){/*ここにhtml側から削除するchatidを所得する*/
       axios
-        .delete(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/chats/destroy/${value}`
+        .delete(`https://nba-api24.herokuapp.com/chats/destroy/${value}`
         )
         .then(response => {
           console.log(response);
@@ -243,7 +231,7 @@ Vue.component('favorite-button', {
     },
     favorite: function(value){
       axios
-        .post('https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/favorites/create', {
+        .post('https://nba-api24.herokuapp.com/favorites/create', {
           chat_id: value /*お気に入りにするchatは、html側から繰り返しの配列からのchatを所得して、そのchatのidを使う。*/
         })
         .then(response => {
@@ -258,7 +246,7 @@ Vue.component('favorite-button', {
     },
     unfavorite: function(value){
       axios
-        .delete('https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/favorites/destroy', {
+        .delete('https://nba-api24.herokuapp.com/favorites/destroy', {
           data: {chat_id: value} /*また、deleteの場合は、ワンチャン、paramsを使った方法にしないと出来ないかもしれない*/
         })
         .then(response => {
@@ -274,7 +262,7 @@ Vue.component('favorite-button', {
     getchat: function(){
       var id = this.chat.id;
       axios
-        .get(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/chats/${id}`)
+        .get(`https://nba-api24.herokuapp.com/chats/${id}`)
         .then(response => {
           console.log(response.data);
           this.Chat = response.data;

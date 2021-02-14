@@ -12,7 +12,7 @@ new Vue({
   mounted() {
     if(sessionStorage.getItem("userId")){
       axios
-        .get('https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/teams/index')
+        .get('https://nba-api24.herokuapp.com/teams/index')
         .then(response => (this.teams = response.data))
         .catch(error => {
           console.log(error);
@@ -26,7 +26,7 @@ new Vue({
     destroyUser: function(){
       var id = sessionStorage.getItem('userId');
       axios
-        .delete(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/users/${id}`
+        .delete(`https://nba-api24.herokuapp.com/users/${id}`
         )
         .then(function (response) {
           console.log(response);
@@ -42,7 +42,7 @@ new Vue({
     logout: function(){
       var id = sessionStorage.getItem('userId');
       axios
-        .delete(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/sessions/${id}`
+        .delete(`https://nba-api24.herokuapp.com/sessions/${id}`
         )
         .then(function (response) {
           console.log(response);

@@ -15,7 +15,7 @@ new Vue({
     if(sessionStorage.getItem("userId")){
       var id = sessionStorage.getItem('userId');
       axios
-        .get(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/users/${id}`
+        .get(`https://nba-api24.herokuapp.com/users/${id}`
         )
         .then(response => {
           console.log(response.data.user);
@@ -38,7 +38,7 @@ new Vue({
       var username = this.user.name;
       console.log(username);
       axios
-        .put(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/users/${id}`, {
+        .put(`https://nba-api24.herokuapp.com/users/${id}`, {
           user: { name: this.user.name,
             self: this.user.self,
             like_player: this.user.like_player,
@@ -106,7 +106,7 @@ new Vue({
       formData.append('like_player_img', this.user.like_player_img);
       console.log(formData);
       axios
-        .put(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/users/${id}/image_update`,
+        .put(`https://nba-api24.herokuapp.com/users/${id}/image_update`,
           formData
           ,
           {

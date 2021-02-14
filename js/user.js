@@ -13,7 +13,7 @@ new Vue({
     if(sessionStorage.getItem("userId")){
       var id = sessionStorage.getItem('userId');
       axios
-        .get(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/users/${id}`
+        .get(`https://nba-api24.herokuapp.com/users/${id}`
         )
         .then(response => {
           console.log(response.data);
