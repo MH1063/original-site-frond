@@ -4,6 +4,9 @@
 <head>
     <meta charset="utf-8">
     <title>NBA</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -19,7 +22,8 @@
 
 <body>
     <div id="app">
-        <div id="backimg" class="main-img" :style="{ backgroundImage: `url(${imageArena})`}">
+        <!--<div id="backimg" class="main-img" :style="{ backgroundImage: `url(${imageArena})`}">-->
+        <div id="backimg" class="main-img" >
             <header class="page-header wrapper">
                 <h1 class="logo">NBA</h1>
                 <nav>
@@ -49,13 +53,13 @@
                 <div id="map"></div>
             </section>
             <section class="right">
-                <img v-bind:src="imageArena">
+                <img id="image_arena" src="">
             </section>
         </div>
         <div id="back-color3">
             <div>
                 <section class="left2">
-                    <img v-bind:src="image1">
+                    <img id="image_player1" src="">
                 </section>
                 <section class="right2">
                     <h1>{{team.player1}}</h1>
@@ -76,14 +80,14 @@
                         <p>NBA経歴: {{team.player2_pro}}年</p>
                 </section>
                 <section class="right3">
-                    <img v-bind:src="image2" >
+                   <img id="image_player2" src="">
                 </section>
             </div>
         </div>
         <div id="back-color5">
             <div>
                 <section class="left2">
-                    <img v-bind:src="image3" >
+                    <img id="image_player3" src="">
                 </section>
                 <section class="right2">
                     <h1>{{team.player3}}</h1>
@@ -104,14 +108,14 @@
                         <p>NBA経歴: {{team.player4_pro}}年</p>
                 </section>
                 <section class="right3">
-                    <img v-bind:src="image4">
+                    <img id="image_player4" src="">
                 </section>
             </div>
         </div>
         <div id="back-color7">
             <div>
                 <section class="left2">
-                    <img v-bind:src="image5">
+                    <img id="image_player5" src="">
                 </section>
                 <section class="right2">
                     <h1>{{team.player5}}</h1>
@@ -185,9 +189,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-    <script src=js/team.js></script>
+    <!--<script src=js/team.js></script>
     
-    <script src=js/api.js></script>
+    <script src=js/api.js></script>-->
+    
+    <script src=js/image.js></script>
     
     <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=APIkey"></script>-->
     
