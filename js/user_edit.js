@@ -44,7 +44,11 @@ new Vue({
             like_player: this.user.like_player,
             like_team: this.user.like_team,
           }
-        })
+        },
+        {
+          withCredentials: true,
+        },
+        )
         .then(response => {
           console.log(response);
           this.editImage();
@@ -112,7 +116,10 @@ new Vue({
           {
             headers: {
               'Content-Type': 'multipart/form-data'
-            }
+            },
+          },
+          {
+            withCredentials: true,
           })
         .then(response => {
           console.log(response);

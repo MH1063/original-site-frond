@@ -26,7 +26,7 @@
 });*/
   
   
-new Vue({
+/*new Vue({
   el: '#app',
   data: {
     Email: '',
@@ -38,7 +38,11 @@ new Vue({
         .post('https://nba-api24.herokuapp.com/sessions/create', {
           email: this.Email,
           password: this.Password,
-        })
+        },
+        {
+          withCredentials: true,
+        },
+        )
         .then(response => {
           console.log(response);
           sessionStorage.setItem("userId", response.data.user.id);
@@ -49,6 +53,18 @@ new Vue({
           console.log(error);
           return false;
         });
+    }
+  }
+});*/
+
+
+
+new Vue({
+  el: '#app',
+  methods: {
+    login: function(){
+      window.location.href = 'https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/_static/original/nba_frond/toppage_afterlogin.html';
+        
     }
   }
 });

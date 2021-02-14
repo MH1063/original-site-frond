@@ -26,8 +26,10 @@ new Vue({
     destroyUser: function(){
       var id = sessionStorage.getItem('userId');
       axios
-        .delete(`https://nba-api24.herokuapp.com/users/${id}`
-        )
+        .delete(`https://nba-api24.herokuapp.com/users/${id}`,
+          {
+            withCredentials: true,
+          })
         .then(function (response) {
           console.log(response);
           sessionStorage.removeItem('userId');
@@ -42,8 +44,10 @@ new Vue({
     logout: function(){
       var id = sessionStorage.getItem('userId');
       axios
-        .delete(`https://nba-api24.herokuapp.com/sessions/${id}`
-        )
+        .delete(`https://nba-api24.herokuapp.com/sessions/${id}`,
+          {
+            withCredentials: true,
+          })
         .then(function (response) {
           console.log(response);
           sessionStorage.removeItem('userId');

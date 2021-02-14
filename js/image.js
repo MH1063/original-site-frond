@@ -9,7 +9,6 @@ var img3 = document.getElementById("image_player3");
 var img4 = document.getElementById("image_player4");
 var img5 = document.getElementById("image_player5");
   
-value[1] = 1;
 if(value[1]==1){
   
   document.getElementById( "backimg" ).style.backgroundImage = "url(./img10/1Nuggets/Pepsi.jpg)";

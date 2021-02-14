@@ -8,27 +8,6 @@ http.createServer(function(req,res){
   var path = '.' + url; //リクエストされたURLをサーバの相対パスへ変換する
   switch(ext){
     
-  case 'js': //拡張子がjsならContent-Typeをtext/javascriptにする
-    fs.readFile(path,function(err,data){
-      res.writeHead(200,{"Content-Type":"text/javascript"});
-      res.end(data,'utf-8');
-    });
-    break;
-    
-  case 'css': 
-    fs.readFile(path,function(err,data){
-      res.writeHead(200,{"Content-Type":"text/css"});
-      res.end(data,'utf-8');
-    });
-    break;
-    
-  case 'jpg': //拡張子がjsならContent-Typeをtext/javascriptにする
-    fs.readFile(path,function(err,data){
-      res.writeHead(200,{"Content-Type":"image/jpeg"});
-      res.end(data,'utf-8');
-    });
-    break;
-    
   case '/': //拡張子が/(index.html)だった場合はindex.htmlを返す
     fs.readFile('./toppage.html',function(err,data){
       res.writeHead(200,{"Content-Type":"text/html"});
@@ -84,6 +63,28 @@ http.createServer(function(req,res){
       res.end(data,'utf-8');
     });
     break;
+    
+  case 'js': //拡張子がjsならContent-Typeをtext/javascriptにする
+    fs.readFile(path,function(err,data){
+      res.writeHead(200,{"Content-Type":"text/javascript"});
+      res.end(data,'utf-8');
+    });
+    break;
+    
+  case 'css': 
+    fs.readFile(path,function(err,data){
+      res.writeHead(200,{"Content-Type":"text/css"});
+      res.end(data,'utf-8');
+    });
+    break;
+    
+  case 'jpg': //拡張子がjsならContent-Typeをtext/javascriptにする
+    fs.readFile(path,function(err,data){
+      res.writeHead(200,{"Content-Type":"image/jpeg"});
+      res.end(data,'utf-8');
+    });
+    break;
+    
   }
 }).listen(8080);
 console.log('サーバーを起動しました。');

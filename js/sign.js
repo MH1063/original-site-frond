@@ -50,11 +50,15 @@ new Vue({
             user: {name: this.Name,
               email: this.Email,
               password: this.Password,
-            }})
+            }},
+          {
+            withCredentials: true,
+          },
+          )
           .then(function (response) {
             console.log(response);
             sessionStorage.setItem('userId', response.data.id);
-            window.location.href = 'https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/_static/original/nba_frond/toppage_afterlogin';
+            window.location.href = 'https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/_static/original/nba_frond/toppage_afterlogin.html';
           })
           .catch(function (error) {
             alert('ログイン出来ませんでした。');

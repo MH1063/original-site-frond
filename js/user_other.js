@@ -58,7 +58,11 @@ new Vue({
       axios
         .post('https://nba-api24.herokuapp.com/relationships/create', {
           follow_id: this.user.id 
-        })
+        },
+        {
+          withCredentials: true,
+        },
+        )
         .then(function (response) {
           console.log(response);
           location.reload();
@@ -74,7 +78,11 @@ new Vue({
         .delete('https://nba-api24.herokuapp.com/relationships/destroy', {
           /*follow_id: this.user.id ここにteamページからアクセスしたuserの情報が乗るようにする。また、deleteの場合は、paramsを使った方法にしないと出来ないかもしれない。*/
           data: {follow_id: this.user.id}
-        })
+        },
+        {
+          withCredentials: true,
+        },
+        )
         .then(function (response) {
           console.log(response);
           location.reload();

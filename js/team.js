@@ -47,7 +47,7 @@ new Vue({
           this.errored = true;
         });
       axios
-        .get(`https://nba-api24.herokuapp.com/chats/index/${value[1]}`)
+        .get(`https://nba-api24.herokuapp.com//chats/index/${value[1]}`)
         .then(response => {
           console.log(response.data);
           this.chats = response.data.chats;
@@ -58,7 +58,7 @@ new Vue({
         });
         
       axios
-        .get(`https://nba-api24.herokuapp.com/users/${id}`)
+        .get(`https://nba-api24.herokuapp.com//users/${id}`)
         .then(response => {
           console.log(response.data.user);
           this.user = response.data.user;
@@ -74,7 +74,7 @@ new Vue({
   methods: {
     getchats: function(){
       axios
-        .get(`https://nba-api24.herokuapp.com/chats/index/${this.team_status}`)
+        .get(`https://nba-api24.herokuapp.com//chats/index/${this.team_status}`)
         .then(response => {
           this.chats = response.data.chats})
         .catch(error => {
@@ -83,10 +83,14 @@ new Vue({
     },
     chatcreate: function(){
       axios
-        .post('https://nba-api24.herokuapp.com/chats/create', {
+        .post('https://nba-api24.herokuapp.com//chats/create', {
           content: this.Content,
           team_id: this.team.id /*ここにそれぞれのteam_idの値が入るようにする。*/
-        })
+        },
+        {
+          withCredentials: true,
+        },
+        )
         .then(response => {
           this.Content = '';
           this.getchats();
@@ -100,8 +104,10 @@ new Vue({
     },
     chatdestroy: function(value){/*ここにhtml側から削除するchatidを所得する*/
       axios
-        .delete(`https://nba-api24.herokuapp.com/chats/destroy/${value}`
-        )
+        .delete(`https://nba-api24.herokuapp.com//chats/destroy/${value}`,
+          {
+            withCredentials: true,
+          })
         .then(response => {
           console.log(response);
           this.getchats();
@@ -233,7 +239,11 @@ Vue.component('favorite-button', {
       axios
         .post('https://nba-api24.herokuapp.com/favorites/create', {
           chat_id: value /*お気に入りにするchatは、html側から繰り返しの配列からのchatを所得して、そのchatのidを使う。*/
-        })
+        },
+        {
+          withCredentials: true,
+        },
+        )
         .then(response => {
           console.log(response);
           this.getchat();
@@ -248,7 +258,11 @@ Vue.component('favorite-button', {
       axios
         .delete('https://nba-api24.herokuapp.com/favorites/destroy', {
           data: {chat_id: value} /*また、deleteの場合は、ワンチャン、paramsを使った方法にしないと出来ないかもしれない*/
-        })
+        },
+        {
+          withCredentials: true,
+        },
+        )
         .then(response => {
           console.log(response);
           this.getchat();
