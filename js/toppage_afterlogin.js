@@ -19,7 +19,7 @@ new Vue({
           this.errored = true;
         });
     }else{
-      window.location.href = 'https://nba-view24.herokuapp.com/toppage';
+      window.location.href = 'https://nba-view24.herokuapp.com/';
     }
   },
   methods: {
@@ -33,7 +33,7 @@ new Vue({
         .then(function (response) {
           console.log(response);
           sessionStorage.removeItem('userId');
-          window.location.href = 'https://nba-view24.herokuapp.com/toppage';
+          window.location.href = 'https://nba-view24.herokuapp.com/';
         })
         .catch(function (error) {
           alert('退会できませんでした。');
@@ -51,7 +51,7 @@ new Vue({
         .then(function (response) {
           console.log(response);
           sessionStorage.removeItem('userId');
-          window.location.href = 'https://nba-view24.herokuapp.com/toppage';
+          window.location.href = 'https://nba-view24.herokuapp.com/';
         })
         .catch(function (error) {
           alert('ログアウトできませんでした。');

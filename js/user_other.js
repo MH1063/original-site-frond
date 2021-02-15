@@ -56,7 +56,7 @@ new Vue({
         });
         
     }else{
-      window.location.href = 'https://nba-view24.herokuapp.com/toppage';
+      window.location.href = 'https://nba-view24.herokuapp.com/';
     }
   },
   methods: {
