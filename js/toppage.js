@@ -5,7 +5,7 @@ new Vue({
   },
   methods: {
     start: function(){
-      window.location.href = 'https://nba-view24.herokuapp.com/login.html';
+      window.location.href = 'https://nba-view24.herokuapp.com/login';
     },
     waypoint () {
       let elem = this.$el.querySelectorAll('.animated');
