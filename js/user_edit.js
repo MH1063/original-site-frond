@@ -27,7 +27,7 @@ new Vue({
           this.errored = true;
         });
     }else{
-      window.location.href = 'https://nba-view24.herokuapp.com/toppage.html';
+      window.location.href = 'https://nba-view24.herokuapp.com/toppage';
     }
   },
   methods: {
@@ -123,7 +123,7 @@ new Vue({
           })
         .then(response => {
           console.log(response);
-          window.location.href = 'https://nba-view24.herokuapp.com/user.html';
+          window.location.href = 'https://nba-view24.herokuapp.com/user';
         }).catch(error => {
           alert('画像の編集できませんでした。');
           console.log(error);

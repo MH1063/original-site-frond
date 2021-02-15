@@ -19,7 +19,7 @@ new Vue({
           this.errored = true;
         });
     }else{
-      window.location.href = 'https://nba-view24.herokuapp.com/toppage.html';
+      window.location.href = 'https://nba-view24.herokuapp.com/toppage';
     }
   },
   methods: {
@@ -33,7 +33,7 @@ new Vue({
         .then(function (response) {
           console.log(response);
           sessionStorage.removeItem('userId');
-          window.location.href = 'https://nba-view24.herokuapp.com/toppage.html';
+          window.location.href = 'https://nba-view24.herokuapp.com/toppage';
         })
         .catch(function (error) {
           alert('退会できませんでした。');
@@ -51,7 +51,7 @@ new Vue({
         .then(function (response) {
           console.log(response);
           sessionStorage.removeItem('userId');
-          window.location.href = 'https://nba-view24.herokuapp.com/toppage.html';
+          window.location.href = 'https://nba-view24.herokuapp.com/toppage';
         })
         .catch(function (error) {
           alert('ログアウトできませんでした。');
@@ -61,7 +61,7 @@ new Vue({
     },
     teamget: function(number){
       console.log(number);
-      window.location.href = 'https://nba-view24.herokuapp.com/team.html?number=' +  number;
+      window.location.href = 'https://nba-view24.herokuapp.com/team?number=' +  number;
     }
   }
 });

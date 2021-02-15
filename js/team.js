@@ -68,7 +68,7 @@ new Vue({
           this.errored = true;
         });
     }else{
-      window.location.href = 'https://nba-view24.herokuapp.com/toppage.html';
+      window.location.href = 'https://nba-view24.herokuapp.com/toppage';
     }
   },
   methods: {
@@ -120,7 +120,7 @@ new Vue({
     },
     userget: function(number){
       console.log(number);
-      window.location.href = 'https://nba-view24.herokuapp.com/user_other.html?number=' +  number;
+      window.location.href = 'https://nba-view24.herokuapp.com/user_other?number=' +  number;
     },
   },
 });

@@ -58,7 +58,7 @@ new Vue({
           .then(function (response) {
             console.log(response);
             sessionStorage.setItem('userId', response.data.id);
-            window.location.href = 'https://nba-view24.herokuapp.com/toppage_afterlogin.html';
+            window.location.href = 'https://nba-view24.herokuapp.com/toppage_afterlogin';
           })
           .catch(function (error) {
             alert('ログイン出来ませんでした。');
