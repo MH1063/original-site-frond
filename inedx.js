@@ -86,7 +86,7 @@ http.createServer(function(req,res){
     break;
     
   }
-}).listen(process.env.PORT || 3000);
+}).listen(process.env.PORT || 8080);
 console.log('サーバーを起動しました。');
 
 
