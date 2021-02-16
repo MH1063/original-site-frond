@@ -66,6 +66,11 @@ new Vue({
           follow_id: this.user.id 
         },
         {
+          headers: {
+            'Authorization': `token: ${this.user.token}`
+          }
+        },
+        {
           withCredentials: true,
         },
         )
@@ -84,6 +89,11 @@ new Vue({
         .delete('https://nba-api24.herokuapp.com/relationships/destroy', {
           /*follow_id: this.user.id ここにteamページからアクセスしたuserの情報が乗るようにする。また、deleteの場合は、paramsを使った方法にしないと出来ないかもしれない。*/
           data: {follow_id: this.user.id}
+        },
+        {
+          headers: {
+            'Authorization': `token: ${this.user.token}`
+          }
         },
         {
           withCredentials: true,

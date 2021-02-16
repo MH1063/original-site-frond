@@ -46,6 +46,11 @@ new Vue({
           }
         },
         {
+          headers: {
+            'Authorization': `token: ${this.user.token}`
+          }
+        },
+        {
           withCredentials: true,
         },
         )
@@ -115,7 +120,7 @@ new Vue({
           ,
           {
             headers: {
-              'Content-Type': 'multipart/form-data'
+              'Content-Type': 'multipart/form-data',
             },
           },
           {

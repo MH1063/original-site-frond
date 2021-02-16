@@ -28,6 +28,11 @@ new Vue({
       axios
         .delete(`https://nba-api24.herokuapp.com/users/${id}`,
           {
+            headers: {
+              'Authorization': `token: ${this.user.token}`
+            }
+          },
+          {
             withCredentials: true,
           })
         .then(function (response) {
@@ -62,6 +67,11 @@ new Vue({
     logout: function(){
       axios
         .delete('https://nba-api24.herokuapp.com/users/log_out',
+          {
+            headers: {
+              'Authorization': `token: ${this.user.token}`
+            }
+          },
           {
             withCredentials: true,
           })
