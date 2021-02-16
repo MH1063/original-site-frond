@@ -40,6 +40,7 @@ new Vue({
   methods: {
     destroyUser: function(){
       var id = sessionStorage.getItem('userId');
+      console.log(this.user.token);
       axios
         .delete(`https://nba-api24.herokuapp.com/users/${id}`,
           {
