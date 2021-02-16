@@ -5,12 +5,27 @@ new Vue({
   el: '#app',
   data() {
     return {
+      user:{},
       teams: [],
       errored: false
     };
   },
   mounted() {
     if(sessionStorage.getItem("userId")){
+      
+      var id = sessionStorage.getItem('userId');
+      axios
+        .get(`https://nba-api24.herokuapp.com/users/${id}`
+        )
+        .then(response => {
+          console.log(response.data);
+          this.user = response.data.user;
+        })
+        .catch(error => {
+          console.log(error);
+          this.errored = true;
+        });
+        
       axios
         .get('https://nba-api24.herokuapp.com/teams/index')
         .then(response => (this.teams = response.data))
