@@ -78,7 +78,7 @@ new Vue({
         )
         .then(response => {
           console.log(response);
-          sessionStorage.setItem("userId", response.data.user.id);
+          sessionStorage.setItem("userId", response.data.id);
           window.location.href = 'https://nba-view24.herokuapp.com/toppage_afterlogin';
         })
         .catch(error => {
