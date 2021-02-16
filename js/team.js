@@ -89,7 +89,7 @@ new Vue({
         },
         {
           headers: {
-            'Authorization': `token: ${this.user.token}`
+            'Authorization': {'token': this.user.token}
           }
         },
         {
