@@ -84,7 +84,7 @@ new Vue({
         .delete('https://nba-api24.herokuapp.com/users/log_out',
           {
             headers: {
-              'Authorization': `token: ${this.user.token}`
+              'Authorization': `${this.user.token}`
             }
           },
           {
