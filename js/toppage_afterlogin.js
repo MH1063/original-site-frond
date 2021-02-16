@@ -41,10 +41,27 @@ new Vue({
           return false;
         });
     },
-    logout: function(){
+    /*logout: function(){
       var id = sessionStorage.getItem('userId');
       axios
         .delete(`https://nba-api24.herokuapp.com/sessions/${id}`,
+          {
+            withCredentials: true,
+          })
+        .then(function (response) {
+          console.log(response);
+          sessionStorage.removeItem('userId');
+          window.location.href = 'https://nba-view24.herokuapp.com/';
+        })
+        .catch(function (error) {
+          alert('ログアウトできませんでした。');
+          console.log(error);
+          return false;
+        });
+    },*/
+    logout: function(){
+      axios
+        .delete('https://nba-api24.herokuapp.com/users/log_out',
           {
             withCredentials: true,
           })
