@@ -278,7 +278,7 @@ Vue.component('favorite-button', {
     },
     unfavorite: function(value){
       axios
-        .delete(`https://nba-api24.herokuapp.com/favorites/destroy/${value}`, {
+        .delete(`https://nba-api24.herokuapp.com/favorites/${value}`, {
           headers: {
             Authorization: `Bearer ${this.Token}`,
           }
