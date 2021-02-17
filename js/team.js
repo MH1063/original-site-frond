@@ -284,7 +284,7 @@ Vue.component('favorite-button', {
           }
         },
         {
-          'data': {chat_id: value} /*また、deleteの場合は、ワンチャン、paramsを使った方法にしないと出来ないかもしれない*/
+          'data': {'chat_id': value} /*また、deleteの場合は、ワンチャン、paramsを使った方法にしないと出来ないかもしれない*/
         },
         //{
           //data: params
