@@ -276,15 +276,12 @@ Vue.component('favorite-button', {
           return false;
         });
     },
-    /*unfavorite: function(value){
+    unfavorite: function(value){
       axios
-        .delete('https://nba-api24.herokuapp.com/favorites/destroy', {
+        .delete(`https://nba-api24.herokuapp.com/favorites/destroy/${value}`, {
           headers: {
             Authorization: `Bearer ${this.Token}`,
           }
-        },
-        {
-          'data': {'chat_id': value} 
         },
         {
           withCredentials: true,
@@ -298,8 +295,8 @@ Vue.component('favorite-button', {
           alert('お気に入りを解除できませんでした。');
           console.log(error);
           return false;
-        });*/
-    unfavorite: function(value){
+        });
+    /*unfavorite: function(value){
       axios.request({
         method: 'delete',
         url: 'https://nba-api24.herokuapp.com/favorites/destroy',
@@ -315,7 +312,7 @@ Vue.component('favorite-button', {
           alert('お気に入りを解除できませんでした。');
           console.log(error);
           return false;
-        });
+        });*/
     },
     getchat: function(){
       var id = this.chat.id;
