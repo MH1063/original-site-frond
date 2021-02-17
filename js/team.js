@@ -276,7 +276,7 @@ Vue.component('favorite-button', {
           return false;
         });
     },
-    unfavorite: function(value){
+    /*unfavorite: function(value){
       axios
         .delete('https://nba-api24.herokuapp.com/favorites/destroy', {
           headers: {
@@ -284,15 +284,29 @@ Vue.component('favorite-button', {
           }
         },
         {
-          'data': {'chat_id': value} /*また、deleteの場合は、ワンチャン、paramsを使った方法にしないと出来ないかもしれない*/
+          'data': {'chat_id': value} 
         },
-        //{
-          //data: params
-        //},
         {
           withCredentials: true,
         },
         )
+        .then(response => {
+          console.log(response);
+          this.getchat();
+        })
+        .catch(error => {
+          alert('お気に入りを解除できませんでした。');
+          console.log(error);
+          return false;
+        });*/
+    unfavorite: function(value){
+      axios.request({
+        method: 'delete',
+        url: 'https://nba-api24.herokuapp.com/favorites/destroy',
+        headers: {Authorization: `Bearer ${this.Token}`},
+        data: {chat_id: value},
+        withCredentials: true,
+      })
         .then(response => {
           console.log(response);
           this.getchat();
