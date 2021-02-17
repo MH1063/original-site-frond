@@ -281,7 +281,7 @@ Vue.component('favorite-button', {
         },
         {
           headers: {
-            Authorization: `Bearer ${this.user.token}`,
+            Authorization: `Bearer ${this.Token}`,
           }
         },
         {
