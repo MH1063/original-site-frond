@@ -47,7 +47,7 @@ new Vue({
         },
         {
           headers: {
-            'Authorization': `token: ${this.user.token}`
+            Authorization: `Bearer ${this.user.token}`,
           }
         },
         {

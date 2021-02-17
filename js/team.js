@@ -89,7 +89,7 @@ new Vue({
         },
         {
           headers: {
-            'Authorization': {'token': this.user.token}
+            Authorization: `Bearer ${this.user.token}`,
           }
         },
         {
@@ -112,7 +112,7 @@ new Vue({
         .delete(`https://nba-api24.herokuapp.com//chats/destroy/${value}`,
           {
             headers: {
-              'Authorization': `token: ${this.user.token}`
+              Authorization: `Bearer ${this.user.token}`,
             }
           },
           {
@@ -252,7 +252,7 @@ Vue.component('favorite-button', {
         },
         {
           headers: {
-            'Authorization': `token: ${this.user.token}`
+            Authorization: `Bearer ${this.user.token}`,
           }
         },
         {
@@ -276,7 +276,7 @@ Vue.component('favorite-button', {
         },
         {
           headers: {
-            'Authorization': `token: ${this.user.token}`
+            Authorization: `Bearer ${this.user.token}`,
           }
         },
         {

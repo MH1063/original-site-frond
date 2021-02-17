@@ -45,7 +45,7 @@ new Vue({
         .delete(`https://nba-api24.herokuapp.com/users/${id}`,
           {
             headers: {
-              'Authorization': {'token': this.user.token}
+              Authorization: `Bearer ${this.user.token}`,
             }
           },
           {
