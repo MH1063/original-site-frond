@@ -53,6 +53,7 @@ new Vue({
           })
         .then(function (response) {
           console.log(response);
+          localStorage.clear();
           sessionStorage.removeItem('userId');
           window.location.href = 'https://nba-view24.herokuapp.com/';
         })
@@ -93,6 +94,7 @@ new Vue({
           })
         .then(function (response) {
           console.log(response);
+          localStorage.clear();
           sessionStorage.removeItem('userId');
           window.location.href = 'https://nba-view24.herokuapp.com/';
         })

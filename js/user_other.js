@@ -19,12 +19,14 @@ new Vue({
     if(sessionStorage.getItem("userId")){
       
       var id = sessionStorage.getItem('userId');
-      var query = location.search;
-      var value = query.split('=');
-      console.log(decodeURIComponent(value[1]));
+      //var query = location.search;
+      //var value = query.split('=');
+      //console.log(decodeURIComponent(value[1]));
+      var OtherId = localStorage.getItem('OtherUserId');
       
       axios
-        .get(`https://nba-api24.herokuapp.com/users/${value[1]}`)
+        //.get(`https://nba-api24.herokuapp.com/users/${value[1]}`)
+        .get(`https://nba-api24.herokuapp.com/users/${OtherId}`)
         .then(response => {
           this.user = response.data.user;
           this.count_favoritings = response.data.count_favoritings;

@@ -130,7 +130,9 @@ new Vue({
     },
     userget: function(number){
       console.log(number);
-      window.location.href = 'https://nba-view24.herokuapp.com/user_other?number=' +  number;
+      localStorage.setItem('OtherUserId', number);
+      //window.location.href = 'https://nba-view24.herokuapp.com/user_other?number=' +  number;
+      window.location.href = 'https://nba-view24.herokuapp.com/user_other';
     },
   },
 });
