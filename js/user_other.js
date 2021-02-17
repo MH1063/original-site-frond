@@ -8,6 +8,7 @@ new Vue({
   data() {
     return {
       user: {},
+      user_login: {},
       activefollow: '',
       count_favoritings: '',
       count_followers: '',
@@ -42,6 +43,7 @@ new Vue({
         .get(`https://nba-api24.herokuapp.com/users/${id}`)
         .then(response => {
           console.log(response);
+          this.user_login = response.data.user;
           const arr = response.data.followings.map(function(user){
             return user.id;
           });
@@ -69,7 +71,7 @@ new Vue({
         },
         {
           headers: {
-            Authorization: `Bearer ${this.user.token}`,
+            Authorization: `Bearer ${this.user_login.token}`,
           }
         },
         {
@@ -94,7 +96,7 @@ new Vue({
         },
         {
           headers: {
-            Authorization: `Bearer ${this.user.token}`,
+            Authorization: `Bearer ${this.user_login.token}`,
           }
         },
         {
