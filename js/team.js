@@ -214,6 +214,10 @@ Vue.component('favorite-button', {
       type: Number,
       required: true,
     },
+    user_token:{
+      type: String,
+      required: true,
+    },
     chat:{
       type: Object,
       required: true,
@@ -222,6 +226,7 @@ Vue.component('favorite-button', {
   data() {
     return{
       userId: this.user_id,
+      Token: this.user_token,
       Chat: this.chat,
     };
   },
@@ -252,7 +257,7 @@ Vue.component('favorite-button', {
         },
         {
           headers: {
-            Authorization: `Bearer ${this.user.token}`,
+            Authorization: `Bearer ${this.Token}`,
           }
         },
         {

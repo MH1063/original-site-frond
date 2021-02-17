@@ -161,7 +161,7 @@
                                     {{chat.content}}
                                 </p>
                                 <div v-if="user.id">
-                                    <favorite-button v-bind:user_id="user.id" v-bind:chat="chat"></favorite-button>
+                                    <favorite-button v-bind:user_id="user.id" v-bind:user_token="user.token" v-bind:chat="chat"></favorite-button>
                                 </div>
                             </div>
                         </div>
