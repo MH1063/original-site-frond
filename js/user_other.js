@@ -90,14 +90,10 @@ new Vue({
     },
     unfollow: function(){
       axios
-        .delete('https://nba-api24.herokuapp.com/relationships/destroy', {
+        .delete(`https://nba-api24.herokuapp.com/relationships/${this.user.id}`, {
           headers: {
             Authorization: `Bearer ${this.user_login.token}`,
           }
-        },
-        {
-          /*follow_id: this.user.id ここにteamページからアクセスしたuserの情報が乗るようにする。また、deleteの場合は、paramsを使った方法にしないと出来ないかもしれない。*/
-          data: {follow_id: this.user.id}
         },
         {
           withCredentials: true,
