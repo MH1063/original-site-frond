@@ -281,8 +281,11 @@ Vue.component('favorite-button', {
             Authorization: `Bearer ${this.Token}`,
           }
         },
+        //{
+          //data: {chat_id: value} /*また、deleteの場合は、ワンチャン、paramsを使った方法にしないと出来ないかもしれない*/
+        //}
         {
-          data: {chat_id: value} /*また、deleteの場合は、ワンチャン、paramsを使った方法にしないと出来ないかもしれない*/
+          params: {chat_id: value}
         },
         {
           withCredentials: true,
