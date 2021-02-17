@@ -304,7 +304,7 @@ Vue.component('favorite-button', {
         method: 'delete',
         url: 'https://nba-api24.herokuapp.com/favorites/destroy',
         headers: {Authorization: `Bearer ${this.Token}`},
-        data: {chat_id: value},
+        data: {'chat_id': value},
         withCredentials: true,
       })
         .then(response => {
