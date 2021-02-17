@@ -277,12 +277,12 @@ Vue.component('favorite-button', {
     unfavorite: function(value){
       axios
         .delete('https://nba-api24.herokuapp.com/favorites/destroy', {
-          data: {chat_id: value} /*また、deleteの場合は、ワンチャン、paramsを使った方法にしないと出来ないかもしれない*/
-        },
-        {
           headers: {
             Authorization: `Bearer ${this.Token}`,
           }
+        },
+        {
+          data: {chat_id: value} /*また、deleteの場合は、ワンチャン、paramsを使った方法にしないと出来ないかもしれない*/
         },
         {
           withCredentials: true,
