@@ -8,7 +8,8 @@ new Vue({
   data() {
     return {
       user: {},
-      user_login: {},
+      user_login_id: '',
+      user_login_token: '',
       user_login_followings: [],
       activefollow: '',
       count_favoritings: '',
@@ -46,8 +47,8 @@ new Vue({
         .get(`https://nba-api24.herokuapp.com/users/${id}`)
         .then(response => {
           console.log(response);
-          this.user_login = response.data.user;
-          console.log(this.user_login.id);
+          this.user_login_id = response.data.user.id;
+          this.user_login_token = response.data.user.token;
           this.user_login_followings = response.data.followings;
           /*const arr = response.data.followings.map(function(user){
             return user.id;
