@@ -88,7 +88,8 @@ new Vue({
         )
         .then(function (response) {
           console.log(response);
-          location.reload();
+          this.activefollow = 'true';
+          //location.reload();
           //this.getuser();
         })
         .catch(function (error) {
@@ -110,7 +111,8 @@ new Vue({
         )
         .then(function (response) {
           console.log(response);
-          location.reload();
+          this.activefollow = 'falses';
+          //location.reload();
           //this.getuser();
         })
         .catch(function (error) {
