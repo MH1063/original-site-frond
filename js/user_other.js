@@ -171,11 +171,11 @@ Vue.component('follow-button', {
     follow: function(){
       axios
         .post('https://nba-api24.herokuapp.com/relationships/create', {
-          follow_id: this.user.id 
+          follow_id: this.UserOtherId 
         },
         {
           headers: {
-            Authorization: `Bearer ${this.user_login.token}`,
+            Authorization: `Bearer ${this.Token}`,
           }
         },
         {
@@ -194,9 +194,9 @@ Vue.component('follow-button', {
     },
     unfollow: function(){
       axios
-        .delete(`https://nba-api24.herokuapp.com/relationships/${this.user.id}`, {
+        .delete(`https://nba-api24.herokuapp.com/relationships/${this.UserOtherId}`, {
           headers: {
-            Authorization: `Bearer ${this.user_login.token}`,
+            Authorization: `Bearer ${this.Token}`,
           }
         },
         {
@@ -229,10 +229,10 @@ Vue.component('follow-button', {
   },
   template:`
     <section  v-if="followcompare">
-        <button type = "botton" class="btn btn-primary btn-lg" v-on:click="follow">follow</button>
+        <button type = "button" class="btn btn-primary btn-lg" v-on:click="follow">follow</button>
     </section>
     <section v-else">
-        <button type = "botton" class="btn btn-danger btn-lg" v-on:click="unfollow">unfollow</button>
+        <button type = "button" class="btn btn-danger btn-lg" v-on:click="unfollow">unfollow</button>
     </section>
     `,
 });
