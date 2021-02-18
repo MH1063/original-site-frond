@@ -30,7 +30,9 @@ new Vue({
         //.get(`https://nba-api24.herokuapp.com/users/${value[1]}`)
         .get(`https://nba-api24.herokuapp.com/users/${OtherId}`)
         .then(response => {
+          console.log(response);
           this.user = response.data.user;
+          console.log(this.user.id);
           this.count_favoritings = response.data.count_favoritings;
           this.count_followers = response.data.count_followers;
           this.count_followings = response.data.count_followings;
@@ -133,7 +135,6 @@ Vue.component('follow-button', {
     },
     user_login_followings:{
       type: Array,
-      required: true,
     },
     user_login_token:{
       type: String,
@@ -231,7 +232,7 @@ Vue.component('follow-button', {
     <section  v-if="followcompare">
         <button type = "button" class="btn btn-primary btn-lg" v-on:click="follow">follow</button>
     </section>
-    <section v-else">
+    <section v-else>
         <button type = "button" class="btn btn-danger btn-lg" v-on:click="unfollow">unfollow</button>
     </section>
     `,
