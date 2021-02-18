@@ -231,11 +231,13 @@ Vue.component('follow-button', {
     }
   },
   template:`
-    <section  v-if="followcompare">
-        <button type = "button" class="btn btn-primary btn-lg" v-on:click="follow">follow</button>
-    </section>
-    <section v-else>
-        <button type = "button" class="btn btn-danger btn-lg" v-on:click="unfollow">unfollow</button>
-    </section>
+    <div v-if="UserOtherId !== UserLoginId">
+        <section  v-if="followcompare">
+            <button type = "button" class="btn btn-primary btn-lg" v-on:click="follow">follow</button>
+        </section>
+        <section v-else>
+           <button type = "button" class="btn btn-danger btn-lg" v-on:click="unfollow">unfollow</button>
+        </section>
+    </div>
     `,
 });
