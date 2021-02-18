@@ -8,6 +8,7 @@ new Vue({
   data() {
     return {
       user: {},
+      user_login: {},
       user_login_id: '',
       user_login_token: '',
       user_login_followings: [],
@@ -47,6 +48,7 @@ new Vue({
         .get(`https://nba-api24.herokuapp.com/users/${id}`)
         .then(response => {
           console.log(response);
+          this.user_login = response.data.user;
           this.user_login_id = response.data.user.id;
           this.user_login_token = response.data.user.token;
           this.user_login_followings = response.data.followings;
@@ -131,24 +133,30 @@ Vue.component('follow-button', {
       type: Number,
       required: true,
     },
-    user_login_id:{
-      type: Number,
+    user_login:{
+      type:Object,
       required: true,
     },
+    /*user_login_id:{
+      type: Number,
+      required: true,
+    },*/
     user_login_followings:{
       type: Array,
     },
-    user_login_token:{
+    /*user_login_token:{
       type: String,
       required: true,
-    },
+    },*/
   },
   data() {
     return{
       UserOtherId: this.user_other_id,
-      UserLoginId: this. user_login_id,
+      //UserLoginId: this.user_login_id,
+      UserLoginId: this.user_login.id,
       UserLoginFollwings: this.user_login_followings,
-      Token: this.user_login_token,
+      //Token: this.user_login_token,
+      Token: this.user_login.token,
     };
   },
   computed: {
@@ -217,9 +225,8 @@ Vue.component('follow-button', {
         });
     },
     getuser: function(){
-      var id = this.UserLoginId;
       axios
-        .get(`https://nba-api24.herokuapp.com/users/${id}`)
+        .get(`https://nba-api24.herokuapp.com/users/${this.UserLoginId}`)
         .then(response => {
           console.log(response.data);
           this.UserLoginFollwings = response.data.followings;
