@@ -52,7 +52,7 @@ new Vue({
           this.user_login_id = response.data.user.id;
           this.user_login_token = response.data.user.token;
           this.user_login_followings = response.data.followings;
-          /*const arr = response.data.followings.map(function(user){
+          const arr = response.data.followings.map(function(user){
             return user.id;
           });
           console.log(arr);
@@ -60,7 +60,7 @@ new Vue({
             this.activefollow = 'true';
           }else{
             this.activefollow = 'false';
-          }*/
+          }
         })
         .catch(error => {
           console.log(error);
@@ -71,6 +71,55 @@ new Vue({
       window.location.href = 'https://nba-view24.herokuapp.com/';
     }
   },
+  methods: {
+    follow: function(){
+      axios
+        .post('https://nba-api24.herokuapp.com/relationships/create', {
+          follow_id: this.user.id
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${this.user_login.token}`,
+          }
+        },
+        {
+          withCredentials: true,
+        },
+        )
+        .then(function (response) {
+          console.log(response);
+          location.reload();
+          //this.getuser();
+        })
+        .catch(function (error) {
+          alert('フォローできませんでした。');
+          console.log(error);
+          return false;
+        });
+    },
+    unfollow: function(){
+      axios
+        .delete(`https://nba-api24.herokuapp.com/relationships/${this.user.id}`, {
+          headers: {
+            Authorization: `Bearer ${this.user_login.token}`,
+          }
+        },
+        {
+          withCredentials: true,
+        },
+        )
+        .then(function (response) {
+          console.log(response);
+          location.reload();
+          //this.getuser();
+        })
+        .catch(function (error) {
+          alert('アンフォローできませんでした');
+          console.log(error);
+          return false;
+        });
+    },
+  },
 });
 
 
@@ -79,7 +128,7 @@ new Vue({
 
 
 
-Vue.component('follow-button', {
+/*Vue.component('follow-button', {
   props:{
     user_other_id:{
       type: Number,
@@ -174,7 +223,6 @@ Vue.component('follow-button', {
         .then(response => {
           console.log(response.data);
           this.UserLoginFollwings = response.data.followings;
-          /*ここにコンポーネントだけリロードできるようにする。*/
         })
         .catch(error => {
           console.log(error);
@@ -191,4 +239,4 @@ Vue.component('follow-button', {
         </section>
     </div>
     `,
-});
+});*/
