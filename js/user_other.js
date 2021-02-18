@@ -73,6 +73,7 @@ new Vue({
   },
   methods: {
     follow: function(){
+      this.activefollow = 'true';
       axios
         .post('https://nba-api24.herokuapp.com/relationships/create', {
           follow_id: this.user.id
@@ -88,7 +89,7 @@ new Vue({
         )
         .then(function (response) {
           console.log(response);
-          this.activefollow = 'true';
+          //this.activefollow = 'true';
           //location.reload();
           //this.getuser();
         })
@@ -99,6 +100,7 @@ new Vue({
         });
     },
     unfollow: function(){
+      this.activefollow = 'falses';
       axios
         .delete(`https://nba-api24.herokuapp.com/relationships/${this.user.id}`, {
           headers: {
@@ -111,7 +113,7 @@ new Vue({
         )
         .then(function (response) {
           console.log(response);
-          this.activefollow = 'falses';
+          //this.activefollow = 'falses';
           //location.reload();
           //this.getuser();
         })
