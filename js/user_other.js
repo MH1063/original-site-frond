@@ -47,6 +47,7 @@ new Vue({
         .then(response => {
           console.log(response);
           this.user_login = response.data.user;
+          console.log(this.user_login.id);
           this.user_login_followings = response.data.followings;
           /*const arr = response.data.followings.map(function(user){
             return user.id;
