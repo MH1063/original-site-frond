@@ -100,7 +100,7 @@ new Vue({
         });
     },
     unfollow: function(){
-      this.activefollow = 'falses';
+      this.activefollow = 'false';
       axios
         .delete(`https://nba-api24.herokuapp.com/relationships/${this.user.id}`, {
           headers: {
