@@ -41,15 +41,8 @@
                     <div v-if="user.icon_img">
                         <img v-bind:src="user.icon_img.url">
                     </div>
-                    <!--<section v-if="activefollow === 'false'">
-                        <button type = "botton" class="btn btn-primary btn-lg" v-on:click="follow">follow</button>
-                    </section>
-                    <section v-else-if="activefollow === 'true'">
-                        <button type = "botton" class="btn btn-danger btn-lg" v-on:click="unfollow">unfollow</button>
-                    </section>-->
                     <div v-if="user.id">
                         <follow-button v-bind:user_other_id="user.id" v-bind:user_login="user_login" v-bind:user_login_followings="user_login_followings"></followe-button>
-                        <!--<follow-button v-bind:user_other_id="user.id" v-bind:user_login_id="user_login_id" v-bind:user_login_followings="user_login_followings" v-bind:user_login_token="user_login_token"></followe-button>-->
                     </div>
                     <p>{{user.self}}</p>
                 </div>

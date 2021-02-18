@@ -71,54 +71,6 @@ new Vue({
       window.location.href = 'https://nba-view24.herokuapp.com/';
     }
   },
-  /*methods: {
-    follow: function(){
-      axios
-        .post('https://nba-api24.herokuapp.com/relationships/create', {
-          follow_id: this.user.id 
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${this.user_login.token}`,
-          }
-        },
-        {
-          withCredentials: true,
-        },
-        )
-        .then(function (response) {
-          console.log(response);
-          location.reload();
-        })
-        .catch(function (error) {
-          alert('フォローできませんでした。');
-          console.log(error);
-          return false;
-        });
-    },
-    unfollow: function(){
-      axios
-        .delete(`https://nba-api24.herokuapp.com/relationships/${this.user.id}`, {
-          headers: {
-            Authorization: `Bearer ${this.user_login.token}`,
-          }
-        },
-        {
-          withCredentials: true,
-        },
-        )
-        .then(function (response) {
-          console.log(response);
-          location.reload();
-        })
-        .catch(function (error) {
-          alert('アンフォローできませんでした');
-          console.log(error);
-          return false;
-        });
-    }
-  },*/
-  
 });
 
 
@@ -137,25 +89,15 @@ Vue.component('follow-button', {
       type:Object,
       required: true,
     },
-    /*user_login_id:{
-      type: Number,
-      required: true,
-    },*/
     user_login_followings:{
       type: Array,
     },
-    /*user_login_token:{
-      type: String,
-      required: true,
-    },*/
   },
   data() {
     return{
       UserOtherId: this.user_other_id,
-      //UserLoginId: this.user_login_id,
       UserLoginId: this.user_login.id,
       UserLoginFollwings: this.user_login_followings,
-      //Token: this.user_login_token,
       Token: this.user_login.token,
     };
   },
@@ -195,7 +137,8 @@ Vue.component('follow-button', {
         )
         .then(function (response) {
           console.log(response);
-          this.getuser();
+          location.reload();
+          //this.getuser();
         })
         .catch(function (error) {
           alert('フォローできませんでした。');
@@ -216,7 +159,8 @@ Vue.component('follow-button', {
         )
         .then(function (response) {
           console.log(response);
-          this.getuser();
+          location.reload();
+          //this.getuser();
         })
         .catch(function (error) {
           alert('アンフォローできませんでした');
