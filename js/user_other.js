@@ -143,7 +143,7 @@ Vue.component('follow-button', {
   },
   data() {
     return{
-      UserOtherId: this.other_user_id,
+      UserOtherId: this.user_other_id,
       UserLoginId: this. user_login_id,
       UserLoginFollwings: this.user_login_followings,
       Token: this.user_login_token,
