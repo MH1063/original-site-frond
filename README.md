@@ -39,9 +39,9 @@ NBA-RAILS-API-FROND VERVION
 # Comment
  
  注力した機能  
-  *RailsAPIとの連携
-  *テンプレートを使用したチャットの状態における条件分岐
-  *リロードを含まない非同期通信の実現
+  *RailsAPIとの連携  
+  *テンプレートを使用したチャットの状態における条件分岐  
+  *リロードを含まない非同期通信の実現  
   *session and local storageを使用したブラウザ上でのデータ管理また、データ取得
 
 # TestAccount 
