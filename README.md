@@ -1,8 +1,8 @@
 # Name（リポジトリ/プロジェクト）
  
-NBA-RAILS-API-FROND VERVION
+NBA-RAILS-API-FRONT VERVION
 
-自作のRailsAPIとの通信によるフロンドエンドwebアプリ
+自作のRailsAPIとの通信によるフロントエンドwebアプリ
 
 # Demo
  
@@ -57,4 +57,4 @@ https://nba-api24.herokuapp.com
 https://nba-view24.herokuapp.com 
 
 * API https://nba-api24.herokuapp.com 
-* フロンド https://nba-view24.herokuapp.com 
+* フロント https://nba-view24.herokuapp.com 
