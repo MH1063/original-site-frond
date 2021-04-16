@@ -46,9 +46,9 @@ NBA-RAILS-API-FRONT VERVION
 
 # TestAccount 
 
-・Email test30@gmail.com
+・Email test40@gmail.com
 
-・password 5tgb6yhn
+・password 7ujm7ujm
  
 # HarokuURL 
 
